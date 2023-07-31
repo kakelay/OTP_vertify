@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class HoemPage extends StatefulWidget {
+  const HoemPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<HoemPage> createState() => _HoemPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _HoemPageState extends State<HoemPage> {
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return Scaffold(
+      return Scaffold(
+      
       appBar: AppBar(
-        title: const Text(
-          'LoginPage',
-          style: TextStyle(color: Colors.black),
-        ),
+        title: const Text('Home',style:TextStyle(color: Colors.black
+        ),),
         elevation: 0,
         backgroundColor: const Color(0xfff7f6fb),
         leading: GestureDetector(
@@ -30,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       body: const Center(
         child: Text(
-          "data",
+          "Home",
         ),
       ),
     );

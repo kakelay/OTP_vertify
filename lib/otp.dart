@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_is_empty
 
 import 'package:flutter/material.dart';
+import 'package:opt_verification/home.dart';
+import 'package:opt_verification/resendcode.dart';
 
 class Otp extends StatefulWidget {
   const Otp({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class _OtpState extends State<Otp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xfff7f6fb),
         leading: GestureDetector(
@@ -25,26 +27,23 @@ class _OtpState extends State<Otp> {
           ),
         ),
       ),
-    
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
             child: Column(
               children: [
-                
                 const SizedBox(
                   height: 25,
                 ),
                 Container(
-                  width: 200,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade50,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset('assets/images/database.png')
-                ),
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple.shade50,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.asset('assets/images/database.png')),
                 const SizedBox(
                   height: 40,
                 ),
@@ -87,7 +86,6 @@ class _OtpState extends State<Otp> {
                           _textFieldOTP(first: false, last: false),
                           _textFieldOTP(first: false, last: false),
                           _textFieldOTP(first: false, last: true),
-                          
                         ],
                       ),
                       const SizedBox(
@@ -96,14 +94,21 @@ class _OtpState extends State<Otp> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          // Within the `FirstRoute` widget
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HoemPage()),
+                            );
+                          },
                           style: ButtonStyle(
                             foregroundColor:
                                 MaterialStateProperty.all<Color>(Colors.white),
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(Colors.purple),
-                            shape:
-                                MaterialStateProperty.all<RoundedRectangleBorder>(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
@@ -136,14 +141,23 @@ class _OtpState extends State<Otp> {
                 const SizedBox(
                   height: 18,
                 ),
-                const Text(
-                  "Resend New Code",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.purple,
+                GestureDetector(
+                  onTap:() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReSendCode()),
+                    );
+                  },
+                  child: const Text(
+                    "Resend New Code",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ],
             ),
